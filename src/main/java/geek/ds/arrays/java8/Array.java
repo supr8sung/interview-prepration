@@ -1,7 +1,5 @@
 package geek.ds.arrays.java8;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
 import java.util.Arrays;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
