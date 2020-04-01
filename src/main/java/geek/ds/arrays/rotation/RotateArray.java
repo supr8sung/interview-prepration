@@ -27,5 +27,45 @@ public class RotateArray {
         return arr;
     }
 
+    // This method has a complexity of O(n~2) in worst case
+    static int[] rotateLeftByNumber(int[] arr, int rotateBy) {
+        for (int i = 0; i < rotateBy; i++) {
+            rotateLeft(arr);
+        }
+        return arr;
+    }
+
+    // Juggling algorithm has a complexity of O(n)
+
+    static int[] rotateLeftByJuggle(int[] arr, int rotateBy) {
+        int length = arr.length;
+        int gcd = findGCD(length, rotateBy);
+        int j, k;
+
+        for (int i = 0; i < gcd; i++) {
+            int temp = arr[i];
+            j = i;
+            while (true) {
+                k = j + rotateBy;
+                if (k >= length)
+                    k = k - length;
+                if (k == i)
+                    break;
+                arr[j] = arr[k];
+                j = k;
+
+            }
+            arr[j] = temp;
+        }
+        return arr;
+    }
+
+    private static int findGCD(int a, int b) {
+        if (b == 0)
+            return a;
+        else
+            return findGCD(b, a % b);
+    }
+
 
 }
